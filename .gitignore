@@ -102,3 +102,10 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Turborepo
+.turbo
+
+# Wondersmith output
+dist
+bin
