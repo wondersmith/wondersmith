@@ -1,0 +1,8 @@
+{
+  "name": "wondersmith-prettier",
+  "version": "0.0.1",
+  "main": ".prettierrc.js",
+  "dependencies": {
+    "prettier": "2.6.2"
+  }
+}

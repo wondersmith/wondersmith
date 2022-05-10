@@ -1,3 +1,1 @@
-
-
-console.log("wondersmith-db started");
+export { Client } from "./client";

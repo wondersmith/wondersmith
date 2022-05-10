@@ -7,4 +7,6 @@ const app = express();
 const server = new http.Server(app);
 
 const io = new Server(server);
-io.on("connection", (/*client*/) => { /* NOP */ });
+io.on("connection", (/*client*/) => {
+    /* NOP */
+});

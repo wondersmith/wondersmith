@@ -4,14 +4,17 @@
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "prettier": "wondersmith-prettier",
   "scripts": {
     "build": "tsc --build"
   },
   "dependencies": {
+    "node-pg-migrate": "6.2.1",
     "pg": "8.7.3"
   },
   "devDependencies": {
     "typescript": "4.6.4",
+    "wondersmith-prettier": "0.0.1",
     "wondersmith-tsconfig": "0.0.1"
   }
 }
