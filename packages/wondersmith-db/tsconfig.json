@@ -1,6 +1,6 @@
 {
     "extends": "wondersmith-tsconfig/tsconfig.json",
     "compilerOptions": {
-        "outDir": "bin"
+        "outDir": "dist"
     }
 }

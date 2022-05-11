@@ -1,4 +1,4 @@
-import { Pool, ClientConfig, PoolConfig, QueryConfig, QueryResult, Submittable } from "pg";
+import { Pool, PoolClient, ClientConfig, PoolConfig, QueryConfig, QueryResult, Submittable } from "pg";
 import { parse } from "pg-connection-string";
 
 declare var globalThis: Global & { WondersmithDBClient?: Client };
@@ -71,5 +71,9 @@ export class Client {
         values?: any[]
     ): Promise<QueryResult<T>> {
         return this.pool.query<T>(qry, values);
+    }
+
+    public async getClient(): Promise<PoolClient> {
+        return this.pool.connect();
     }
 }
