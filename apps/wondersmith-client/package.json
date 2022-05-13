@@ -2,11 +2,21 @@
   "name": "wondersmith-client",
   "version": "0.0.1",
   "bin": "dist/index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "prettier": "wondersmith-prettier",
   "scripts": {
-    "build": "tsc --build"
+    "build": "tsc --build",
+    "start": "electron"
   },
   "devDependencies": {
     "typescript": "4.6.4",
+    "wondersmith-prettier": "0.0.1",
     "wondersmith-tsconfig": "0.0.1"
+  },
+  "dependencies": {
+    "commander": "9.2.0",
+    "cosmiconfig": "7.0.1",
+    "electron": "18.2.3"
   }
 }
