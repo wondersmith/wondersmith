@@ -11,6 +11,6 @@ exports.up = pgm => {
         INSERT INTO users
         (email, password, salt)
         VALUES
-        ("admin@wondersmith", "$2b$10$8raa.2MRPwuqwDkvfCNvpOyxpWZIDri/CSY1kQhL4ZjRx2QdvqKMe", "$2b$10$8raa.2MRPwuqwDkvfCNvpO")
+        ('admin@wondersmith', '$2b$10$8raa.2MRPwuqwDkvfCNvpOyxpWZIDri/CSY1kQhL4ZjRx2QdvqKMe', '$2b$10$8raa.2MRPwuqwDkvfCNvpO')
     `);
 };
