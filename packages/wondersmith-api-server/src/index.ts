@@ -1,30 +1,35 @@
 import http from "http";
 import https from "https";
-import { Application } from "express";
+
+import { createHttpTerminator, HttpTerminator } from "http-terminator";
+
+import Koa from "koa";
 
 import { WondersmithAPIServerConfig } from "./config";
 import { createApp } from "./app";
-import { createServer } from "./server";
 
 export class WondersmithAPIServer {
     public readonly config: WondersmithAPIServerConfig;
 
-    private readonly app: Application;
-    private readonly server: https.Server | http.Server;
+    private readonly app: Koa;
+    private terminator?: HttpTerminator;
+    private server?: http.Server | https.Server;
 
     public constructor(config: WondersmithAPIServerConfig) {
         this.config = config;
         this.app = createApp(this.config);
-        this.server = createServer(this.config, this.app);
     }
 
     public start() {
-        this.server.listen(this.config.port, "localhost", () => {
+        console.log("Starting server");
+        console.table(this.config);
+        this.server = this.app.listen(this.config.port, "localhost", () => {
             console.log("App now listening");
         });
+        this.terminator = createHttpTerminator({ server: this.server });
     }
 
-    public stop() {
-        this.server.close();
+    public async stop(): Promise<void> {
+        await this.terminator?.terminate();
     }
 }

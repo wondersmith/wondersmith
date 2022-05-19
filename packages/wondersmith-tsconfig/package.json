@@ -1,8 +1,8 @@
 {
-    "name": "wondersmith-tsconfig",
-    "version": "0.0.1",
-    "main": "tsconfig.json",
-    "files": [
-        "tsconfig.json"
-    ]
+  "name": "wondersmith-tsconfig",
+  "version": "0.0.1",
+  "main": "tsconfig.json",
+  "files": [
+    "tsconfig.json"
+  ]
 }

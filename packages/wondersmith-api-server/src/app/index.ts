@@ -1,13 +1,11 @@
-import express, { Application } from "express";
-//import cookieParser from "cookie-parser";
-//import bodyParser from "body-parser";
+import Koa from "koa";
 //import passport from "passport";
 
 import { WondersmithAPIServerConfig } from "../config";
 import { createRoutes } from "./routes";
 
-export function createApp(config: WondersmithAPIServerConfig): Application {
-    const app = express();
+export function createApp(config: WondersmithAPIServerConfig): Koa {
+    const app = new Koa();
     /*
     app.use(cookieParser());
     app.use(bodyParser.json());
@@ -17,6 +15,6 @@ export function createApp(config: WondersmithAPIServerConfig): Application {
     app.use(passport.initialize());
     app.use(passport.session());
     */
-    app.use("/", createRoutes());
+    app.use(createRoutes().routes());
     return app;
 }

@@ -5,6 +5,7 @@
   "types": "dist/index.d.ts",
   "prettier": "wondersmith-prettier",
   "scripts": {
+    "clean": "del-cli dist",
     "build": "tsc --build"
   },
   "dependencies": {
@@ -12,6 +13,7 @@
     "pg": "8.7.3"
   },
   "devDependencies": {
+    "del-cli": "4.0.1",
     "typescript": "4.6.4",
     "wondersmith-prettier": "0.0.1",
     "wondersmith-tsconfig": "0.0.1"

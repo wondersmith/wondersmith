@@ -1,11 +1,11 @@
-import { Router } from "express";
+import Router from "@koa/router";
 
 export function authRouter(): Router {
-    const router = Router({ strict: true });
+    const router = new Router();
 
-    router.get("/login", (req, res) => {
-        console.log("IN /AUTH");
-        res.status(200).send("{\"token\": \"123\"}");
+    router.get("/login", ctx => {
+        ctx.status = 200;
+        ctx.body = `{ "auth": true }`;
     });
 
     return router;
