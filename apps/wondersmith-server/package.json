@@ -1,16 +1,19 @@
 {
   "name": "wondersmith-server",
   "version": "0.0.1",
-  "bin": "dist/index.js",
+  "bin": "dist/index.mjs",
+  "type": "module",
   "prettier": "wondersmith-prettier",
   "scripts": {
-    "clean": "del-cli bin",
+    "clean": "del-cli bin .turbo",
     "build": "tsc --build"
   },
   "dependencies": {
+    "execa": "6.1.0",
     "socket.io": "4.5.0",
     "wondersmith-api-server": "0.0.1",
-    "wondersmith-db": "0.0.1"
+    "wondersmith-db": "0.0.1",
+    "wondersmith-logger": "0.0.1"
   },
   "devDependencies": {
     "del-cli": "4.0.1",

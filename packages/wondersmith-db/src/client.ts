@@ -1,6 +1,8 @@
 import { Pool, PoolClient, ClientConfig, PoolConfig, QueryConfig, QueryResult, Submittable } from "pg";
 import { parse } from "pg-connection-string";
 
+import * as queries from "./queries";
+
 declare var globalThis: Global & { WondersmithDBClient?: Client };
 
 /**
@@ -9,6 +11,9 @@ declare var globalThis: Global & { WondersmithDBClient?: Client };
 export class Client {
     /**
      * Initialise and return the global database client.
+     * 
+     * @param constr Complete connection string to the database
+     * @param max Maximum number of clients to keep in the pool
      */
     public static init(constr: string, max = 20): Client {
         const connectionConfig = parse(constr);
@@ -38,6 +43,11 @@ export class Client {
             delete globalThis["WondersmithDBClient"];
         }
     }
+
+    /**
+     * Collection of helpful queries.
+     */
+    public readonly queries = queries;
 
     /// PG pool configuration
     private readonly config: PoolConfig;

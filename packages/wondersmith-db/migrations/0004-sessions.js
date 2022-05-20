@@ -1,38 +1,38 @@
 exports.up = pgm => {
-    pgm.createTable("apiSessions", {
+    pgm.createTable("api_sessions", {
         id: { type: "char(53)", notNull: true, unique: true },
-        userid: {
+        user_id: {
             type: "integer",
             notNull: true,
             references: "users",
             onDelete: "cascade",
         },
-        createdAt: { type: "timestamp", notNull: true, default: pgm.func("current_timestamp") },
-        lastUpdated: { type: "timestamp", notNull: true, default: pgm.func("current_timestamp") },
+        created: { type: "timestamp", notNull: true, default: pgm.func("current_timestamp") },
+        updated: { type: "timestamp", notNull: true, default: pgm.func("current_timestamp") },
     });
-    pgm.createIndex("apiSessions", "id");
-    pgm.createIndex("apiSessions", "userid");
+    pgm.createIndex("api_sessions", "id");
+    pgm.createIndex("api_sessions", "user_id");
 
-    pgm.createTable("gameSessions", {
+    pgm.createTable("game_sessions", {
         id: { type: "char(53)", notNull: true, unique: true },
-        userid: {
+        user_id: {
             type: "integer",
             notNull: true,
             unique: true,
             references: "users",
             onDelete: "cascade",
         },
-        characterid: {
+        character_id: {
             type: "integer",
             notNull: true,
             unique: true,
             references: "characters",
             onDelete: "cascade",
         },
-        createdAt: { type: "timestamp", notNull: true, default: pgm.func("current_timestamp") },
-        lastUpdated: { type: "timestamp", notNull: true, default: pgm.func("current_timestamp") },
+        created: { type: "timestamp", notNull: true, default: pgm.func("current_timestamp") },
+        updated: { type: "timestamp", notNull: true, default: pgm.func("current_timestamp") },
     });
-    pgm.createIndex("gameSessions", "id");
-    pgm.createIndex("gameSessions", "userid");
-    pgm.createIndex("gameSessions", "characterid");
+    pgm.createIndex("game_sessions", "id");
+    pgm.createIndex("game_sessions", "user_id");
+    pgm.createIndex("game_sessions", "character_id");
 };

@@ -1,5 +1,5 @@
 import Koa from "koa";
-//import passport from "passport";
+import passport from "koa-passport";
 
 import { WondersmithAPIServerConfig } from "../config";
 import { createRoutes } from "./routes";
@@ -11,10 +11,10 @@ export function createApp(config: WondersmithAPIServerConfig): Koa {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
     */
-    /*
+    
+    // Passport authentication
     app.use(passport.initialize());
-    app.use(passport.session());
-    */
+
     app.use(createRoutes().routes());
     return app;
 }

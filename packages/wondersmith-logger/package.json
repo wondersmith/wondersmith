@@ -1,14 +1,12 @@
 {
-  "name": "wondersmith-client",
+  "name": "wondersmith-logger",
   "version": "0.0.1",
-  "bin": "dist/index.js",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "prettier": "wondersmith-prettier",
   "scripts": {
-    "clean": "del-cli bin .turbo",
-    "build": "tsc --build",
-    "start": "electron"
+    "clean": "del-cli dist .turbo",
+    "build": "tsc --build"
   },
   "devDependencies": {
     "del-cli": "4.0.1",
@@ -17,8 +15,6 @@
     "wondersmith-tsconfig": "0.0.1"
   },
   "dependencies": {
-    "commander": "9.2.0",
-    "cosmiconfig": "7.0.1",
-    "electron": "18.2.3"
+    "winston": "3.7.2"
   }
 }

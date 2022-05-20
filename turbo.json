@@ -6,7 +6,7 @@
       "dependsOn": ["^clean"]
     },
     "build": {
-      "dependsOn": ["^clean","^build"]
+      "dependsOn": ["^build"]
     },
     "start": {
       "dependsOn": ["^build"]

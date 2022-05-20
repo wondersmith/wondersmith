@@ -15,6 +15,7 @@
     "noEmitOnError": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "sourceMap": true
   }
 }

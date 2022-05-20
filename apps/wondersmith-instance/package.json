@@ -1,17 +1,22 @@
 {
   "name": "wondersmith-instance",
   "version": "0.0.1",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "bin": "bin/index.mjs",
   "prettier": "wondersmith-prettier",
   "scripts": {
-    "clean": "del-cli dist",
+    "clean": "del-cli bin .turbo",
     "build": "tsc --build"
   },
   "devDependencies": {
+    "@types/bcrypt": "5.0.0",
     "del-cli": "4.0.1",
     "typescript": "4.6.4",
     "wondersmith-prettier": "0.0.1",
     "wondersmith-tsconfig": "0.0.1"
+  },
+  "dependencies": {
+    "bcrypt": "5.0.1",
+    "socket.io": "4.5.1",
+    "wondersmith-db": "0.0.1"
   }
 }

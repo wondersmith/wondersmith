@@ -1,32 +1,31 @@
+import { Logger } from "wondersmith-logger";
 import { Client, migrate } from "wondersmith-db";
 import { WondersmithAPIServer } from "wondersmith-api-server";
+
+import setupKiller from "./utils/killer.js";
+
+// TODO: Parse arguments and load config
+
+// TODO: Setup logger
+Logger.get().info("Hello Server");
 
 // Init the client
 Client.init("postgresql://wonder:smith@localhost:5432/wondersmith");
 
-// Run the migrations
-(async () => await migrate(Client.get()))();
+// Run the migrations and wait for them to complete before proceeding
+await migrate(Client.get());
 
-// Start a new API server
-const wsAPIServer = new WondersmithAPIServer({ port: 4242 });
+// TODO: Create the socket based game server controller
 
-// Multiple ways of ending a process so we want to take the first one that works and only use it
-// then - the process may hang for a bit while all connections are cleanly shut down.
-let killCount = 0;
-const killer = async () => {
-    if (killCount++ === 0) {
-        console.log("Stopping...");
-        await wsAPIServer.stop();
-        console.log("Stopped");
-    }
-};
-["SIGINT", "SIGQUIT", "SIGTERM"].forEach(sig => process.on(sig, killer));
+// Create the API server
+const apiServer = new WondersmithAPIServer({ port: 4242 });
 
-// Start the API server
-wsAPIServer.start();
+// Setup the process killer for the servers so we can cleanly shut down
+// TODO: Add clean killer to game server controller too
+setupKiller(apiServer);
 
-/*
-const io = new Server(server);
-io.on("connection", (client) => {
-});
-*/
+// TODO: Start the game server controller
+
+// Start the API server after the game server so that it can be certain the game server is present.
+// Process will now wait here as the API server is the foremost endpoint
+apiServer.start();
