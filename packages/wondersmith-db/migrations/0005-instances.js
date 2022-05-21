@@ -1,9 +1,16 @@
 exports.up = pgm => {
-    // TODO: Maybe change this to instance_procs ? I don't know if I like using the name "instance" like this. Whatever.
     pgm.createTable("instances", {
         id: "id",
-        zone: { type: "varchar(128)", notNull: true },
+        name: { type: "varchar(128)", notNull: true, unique: true },
+    });
+
+    pgm.createTable("instance_procs", {
+        id: "id",
+        instance_id: { type: "integer", notNull: true, references: "instances", onDelete: "cascade" },
         endpoint: { type: "varchar(128)", notNull: true, unique: true },
         created: { type: "timestamp", notNull: true, default: pgm.func("current_timestamp") },
     });
+
+    // The World instance must always exist
+    pgm.sql("INSERT INTO instances (name) VALUES ('World')");
 };

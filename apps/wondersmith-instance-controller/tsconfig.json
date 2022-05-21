@@ -1,0 +1,10 @@
+{
+    "extends": "wondersmith-tsconfig/tsconfig.json",
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"],
+    "compilerOptions": {
+        "module": "ESNext",
+        "target": "ESNext",
+        "outDir": "bin"
+    }
+}

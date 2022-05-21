@@ -4,7 +4,7 @@ exports.up = pgm => {
         user_id: {
             type: "integer",
             notNull: true,
-            references: '"users"',
+            references: "users",
             onDelete: "cascade",
         },
         name: { type: "varchar(32)", notNull: true, unique: true },
