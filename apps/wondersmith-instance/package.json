@@ -1,6 +1,7 @@
 {
   "name": "wondersmith-instance",
   "version": "0.0.1",
+  "type": "module",
   "bin": "bin/index.mjs",
   "prettier": "wondersmith-prettier",
   "scripts": {
