@@ -9,6 +9,8 @@
     "build": "tsc --build"
   },
   "dependencies": {
+    "commander": "9.2.0",
+    "cosmiconfig": "7.0.1",
     "execa": "6.1.0",
     "socket.io": "4.5.0",
     "wondersmith-api-server": "0.0.1",

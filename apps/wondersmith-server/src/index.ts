@@ -3,8 +3,10 @@ import { Client, migrate } from "wondersmith-db";
 import { WondersmithAPIServer } from "wondersmith-api-server";
 
 import setupKiller from "./utils/killer.js";
+import getConfig from "./config/index.js";
 
 // TODO: Parse arguments and load config
+getConfig(process.argv);
 
 // TODO: Setup logger
 Logger.get().info("Hello Server");

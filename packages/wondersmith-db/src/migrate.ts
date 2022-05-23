@@ -1,11 +1,11 @@
 import path from "path";
 import pgm from "node-pg-migrate";
 
+import { Logger } from "wondersmith-logger";
+
 import { Client } from "./client";
 
 export async function migrate(client: Client): Promise<void> {
-    console.log("Migration started...");
-
     // The path to the directory containing all migrations
     const migrationsDir = path.resolve(__dirname, "..", "migrations");
 
@@ -13,12 +13,14 @@ export async function migrate(client: Client): Promise<void> {
     const mgClient = await client.getClient();
 
     // Pass to pgm and run the migrations
-    await pgm({ dbClient: mgClient, dir: migrationsDir, migrationsTable: "_migrations", direction: "up" });
-
-    console.log("Migration finished...");
+    await pgm({
+        dbClient: mgClient,
+        dir: migrationsDir,
+        migrationsTable: "_migrations",
+        direction: "up",
+        logger: Logger.get(),
+    });
 
     // Release the client
     mgClient.release();
-
-    console.log("Migration client released");
 }

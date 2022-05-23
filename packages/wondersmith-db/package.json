@@ -11,7 +11,8 @@
   "dependencies": {
     "bcrypt": "5.0.1",
     "node-pg-migrate": "6.2.1",
-    "pg": "8.7.3"
+    "pg": "8.7.3",
+    "wondersmith-logger": "0.0.1"
   },
   "devDependencies": {
     "@types/bcrypt": "5.0.0",
