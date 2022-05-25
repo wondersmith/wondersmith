@@ -12,6 +12,6 @@
         "start:client": "turbo run start --filter=wondersmith-client"
     },
     "devDependencies": {
-        "turbo": "1.2.8"
+        "turbo": "1.2.12"
     }
 }

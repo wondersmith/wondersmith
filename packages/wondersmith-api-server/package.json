@@ -14,7 +14,7 @@
     "@types/koa-passport": "4.0.3",
     "@types/passport": "1.0.7",
     "del-cli": "4.0.1",
-    "typescript": "4.6.4",
+    "typescript": "4.7.2",
     "wondersmith-prettier": "0.0.1",
     "wondersmith-tsconfig": "0.0.1"
   },
@@ -26,7 +26,7 @@
     "koa-bodyparser": "4.3.0",
     "koa-passport": "4.1.4",
     "koa-session": "6.2.0",
-    "passport": "0.5.2",
+    "passport": "0.6.0",
     "passport-local": "1.0.0",
     "wondersmith-db": "0.0.1"
   }

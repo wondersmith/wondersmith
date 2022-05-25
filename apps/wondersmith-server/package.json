@@ -12,14 +12,14 @@
     "commander": "9.2.0",
     "cosmiconfig": "7.0.1",
     "execa": "6.1.0",
-    "socket.io": "4.5.0",
+    "socket.io": "4.5.1",
     "wondersmith-api-server": "0.0.1",
     "wondersmith-db": "0.0.1",
     "wondersmith-logger": "0.0.1"
   },
   "devDependencies": {
     "del-cli": "4.0.1",
-    "typescript": "4.6.4",
+    "typescript": "4.7.2",
     "wondersmith-prettier": "0.0.1",
     "wondersmith-tsconfig": "0.0.1"
   }
