@@ -8,8 +8,14 @@
     "build": {
       "dependsOn": ["^build"]
     },
+    "lint": {
+      "dependsOn": ["^lint"]
+    },
     "start": {
       "dependsOn": ["^build"]
+    },
+    "test": {
+      "dependsOn": ["^lint", "^build"]
     }
   }
 }

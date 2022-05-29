@@ -9,3 +9,14 @@ services:
       POSTGRES_USER: wonder
       POSTGRES_PASSWORD: smith
       POSTGRES_DB: wondersmith
+  ws_server:
+    build:
+      context: .
+    image: "node:18"
+    command: "./apps/wondersmith-server/bin/index.js"
+    depends_on:
+      - database
+  ws_instance_controller:
+    image: "node:18"
+    depends_on:
+      - ws_server
