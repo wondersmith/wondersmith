@@ -2,6 +2,7 @@
   "name": "eslint-config-wondersmith",
   "version": "0.0.1",
   "main": "index.js",
+  "files": ["index.js", ".eslintignore"],
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "5.26.0",
     "@typescript-eslint/parser": "5.26.0",

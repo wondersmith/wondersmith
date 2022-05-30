@@ -7,9 +7,9 @@
         "apps/*"
     ],
     "scripts": {
-        "clean": "turbo run clean",
+        "clean": "turbo run clean --parallel",
         "build": "turbo run build",
-        "lint": "turbo run lint",
+        "lint": "turbo run lint --parallel",
         "start:client": "turbo run start --filter=wondersmith-client"
     },
     "devDependencies": {

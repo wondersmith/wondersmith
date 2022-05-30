@@ -21,10 +21,8 @@ export class WondersmithAPIServer {
     }
 
     public start() {
-        console.log("Starting server");
-        console.table(this.config);
         this.server = this.app.listen(this.config.port, "localhost", () => {
-            console.log("App now listening");
+            // NOP
         });
         this.terminator = createHttpTerminator({ server: this.server });
     }

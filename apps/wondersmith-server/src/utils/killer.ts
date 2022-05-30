@@ -8,9 +8,7 @@ export default function setupKiller(apiServer: WondersmithAPIServer) {
     let killCount = 0;
     const killer = async () => {
         if (killCount++ === 0) {
-            console.log("Stopping...");
             await apiServer.stop();
-            console.log("Stopped");
         }
     };
     ["SIGINT", "SIGQUIT", "SIGTERM"].forEach(sig => process.on(sig, killer));

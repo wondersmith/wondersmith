@@ -10,7 +10,6 @@
     "pretty": true,
     "strict": true,
     "noImplicitOverride": true,
-    "noUnusedLocals": true,
     "noUncheckedIndexedAccess": true,
     "noEmitOnError": true,
     "forceConsistentCasingInFileNames": true,
