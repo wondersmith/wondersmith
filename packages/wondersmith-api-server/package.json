@@ -8,7 +8,7 @@
   "scripts": {
     "clean": "del-cli dist .turbo",
     "build": "tsc --build",
-    "lint": "eslint ."
+    "lint": "eslint src"
   },
   "devDependencies": {
     "@types/koa": "2.13.4",

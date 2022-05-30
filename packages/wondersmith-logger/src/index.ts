@@ -1,6 +1,12 @@
 import winston from "winston";
 
-declare var globalThis: Global & { WondersmithLogger?: Logger };
+declare const globalThis: Global & { WondersmithLogger?: Logger };
+
+/**
+ * Generic loggable array of items.
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type Loggable = any[];
 
 export class Logger {
     public static get(): Logger {
@@ -33,37 +39,37 @@ export class Logger {
         return this;
     }
 
-    public error(...msg: any[]): this {
+    public error(...msg: Loggable): this {
         this.logger.error(msg);
         return this;
     }
 
-    public warn(...msg: any[]): this {
+    public warn(...msg: Loggable): this {
         this.logger.warn(msg);
         return this;
     }
 
-    public info(...msg: any[]): this {
+    public info(...msg: Loggable): this {
         this.logger.info(msg);
         return this;
     }
 
-    public http(...msg: any[]): this {
+    public http(...msg: Loggable): this {
         this.logger.http(msg);
         return this;
     }
 
-    public verbose(...msg: any[]): this {
+    public verbose(...msg: Loggable): this {
         this.logger.verbose(msg);
         return this;
     }
 
-    public debug(...msg: any[]): this {
+    public debug(...msg: Loggable): this {
         this.logger.debug(msg);
         return this;
     }
 
-    public silly(...msg: any[]): this {
+    public silly(...msg: Loggable): this {
         this.logger.silly(msg);
         return this;
     }

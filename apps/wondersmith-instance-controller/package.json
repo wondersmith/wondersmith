@@ -7,7 +7,7 @@
   "scripts": {
     "clean": "del-cli bin .turbo",
     "build": "tsc --build",
-    "lint": "eslint ."
+    "lint": "eslint src"
   },
   "devDependencies": {
     "@types/bcrypt": "5.0.0",

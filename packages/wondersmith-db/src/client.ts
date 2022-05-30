@@ -3,7 +3,7 @@ import { parse } from "pg-connection-string";
 
 import * as queries from "./queries";
 
-declare var globalThis: Global & { WondersmithDBClient?: Client };
+declare const globalThis: Global & { WondersmithDBClient?: Client };
 
 /**
  * High level database client class that allows for a globally available singleton of pooled connections.
@@ -11,7 +11,7 @@ declare var globalThis: Global & { WondersmithDBClient?: Client };
 export class Client {
     /**
      * Initialise and return the global database client.
-     * 
+     *
      * @param constr Complete connection string to the database
      * @param max Maximum number of clients to keep in the pool
      */
@@ -77,7 +77,9 @@ export class Client {
     }
 
     public async query<T extends Submittable>(
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         qry: string | QueryConfig<any[]>,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         values?: any[]
     ): Promise<QueryResult<T>> {
         return this.pool.query<T>(qry, values);
