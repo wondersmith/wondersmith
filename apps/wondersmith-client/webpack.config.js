@@ -1,10 +1,17 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+/*
+ * List of pages to be built - should be used in reducers or maps to generate the needed
+ * configuration.
+ */
+const pagesArray = ["game", "login", "options", "splash"];
 
 module.exports = {
-    entry: {
-        splash: "./src/pages/splash/index.ts",
-        game: "./src/pages/game/index.ts",
-    },
+    entry: pagesArray.reduce(
+        (prev, cur) => ({ ...prev, [cur]: path.resolve(__dirname, "src", "pages", cur, "index.ts") }),
+        {}
+    ),
     output: {
         filename: "[name]/[name].bundle.js",
         path: path.resolve(__dirname, "bin", "pages"),
@@ -20,4 +27,16 @@ module.exports = {
             },
         ],
     },
+    plugins: [
+        ...pagesArray.map(
+            page =>
+                new HtmlWebpackPlugin({
+                    chunks: [page],
+                    filename: path.resolve(__dirname, "bin", "pages", page, "index.html"),
+                    minify: false,
+                    scriptLoading: "blocking",
+                    title: `Wondersmith - ${page}`,
+                })
+        ),
+    ],
 };
