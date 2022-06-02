@@ -1,5 +1,7 @@
 import { app, BrowserWindow } from "electron";
 
+import "./ipc";
+
 (async () => {
     await app.whenReady();
     const win = new BrowserWindow({ width: 800, height: 600 });

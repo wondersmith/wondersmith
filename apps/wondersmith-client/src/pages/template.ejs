@@ -1,0 +1,23 @@
+<% var item, key %><%
+htmlWebpackPlugin.options.lang = htmlWebpackPlugin.options.lang || "en" %><%
+htmlWebpackPlugin.options.meta = htmlWebpackPlugin.options.meta || [] %><%
+htmlWebpackPlugin.options.scripts = htmlWebpackPlugin.options.scripts || []
+%>
+<!DOCTYPE html>
+<html lang="<%= htmlWebpackPlugin.options.lang %>">
+    <head>
+        <meta charset="UTF-8">
+        <title><%= htmlWebpackPlugin.options.title %></title>
+        <style>
+            body { background: black; margin: 0; padding: 0 }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+        <%
+            for (item of htmlWebpackPlugin.options.scripts) { %><%j
+                if (typeof item === 'string' || item instanceof String) { item = { src: item, type: 'text/javascript' } } %>
+                <script type="javascript" <% for (key in item) { %> <%= key %>="<%= item[key] %>"<% } %>></script><%
+    } %>
+    </body>
+</html>

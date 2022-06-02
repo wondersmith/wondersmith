@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require("webpack");
 
 /*
  * List of pages to be built - should be used in reducers or maps to generate the needed
@@ -8,8 +9,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const pagesArray = ["game", "login", "options", "splash"];
 
 module.exports = {
+    target: "electron-renderer",
     entry: pagesArray.reduce(
-        (prev, cur) => ({ ...prev, [cur]: path.resolve(__dirname, "src", "pages", cur, "index.ts") }),
+        (prev, cur) => ({ ...prev, [cur]: path.resolve(__dirname, "src", "pages", cur, "index.tsx") }),
         {}
     ),
     output: {
@@ -28,6 +30,7 @@ module.exports = {
         ],
     },
     plugins: [
+        new webpack.ExternalsPlugin("commonjs", ["electron"]),
         ...pagesArray.map(
             page =>
                 new HtmlWebpackPlugin({
@@ -35,6 +38,7 @@ module.exports = {
                     filename: path.resolve(__dirname, "bin", "pages", page, "index.html"),
                     minify: false,
                     scriptLoading: "blocking",
+                    template: path.resolve(__dirname, "src", "pages", "template.ejs"),
                     title: `Wondersmith - ${page}`,
                 })
         ),
