@@ -18,5 +18,5 @@ import { initIPCMain } from "./ipc";
     initIPCMain(win);
     win.maximize();
     // TODO: Make this dependent on args parsing
-    await win.loadFile("./pages/splash/index.html");
+    await win.loadFile("./pages/game/index.html");
 })();

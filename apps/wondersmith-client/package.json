@@ -39,6 +39,7 @@
     "commander": "9.2.0",
     "cosmiconfig": "7.0.1",
     "electron": "19.0.0",
+    "wondersmith-game-engine": "0.0.1",
     "wondersmith-logger": "0.0.1"
   }
 }

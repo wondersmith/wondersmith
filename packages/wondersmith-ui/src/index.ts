@@ -1,3 +1,1 @@
-export class WondersmithGameClient {
-    
-}
+export * from "./components";

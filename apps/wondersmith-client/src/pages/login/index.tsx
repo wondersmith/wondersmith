@@ -1,5 +1,11 @@
 import React from "react";
 
+import { WSTextbox } from "wondersmith-ui";
+
 import { createPage } from "../common/react";
 
-createPage(<h1>Login</h1>);
+createPage(<WSTextbox />);
+
+// eslint-disable-next-line
+// @ts-expect-error
+setTimeout(() => window.electron.ipcRenderer.send("goToPage", "game"), 1000);
