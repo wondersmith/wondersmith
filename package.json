@@ -10,7 +10,8 @@
         "clean": "turbo run clean --parallel",
         "build": "turbo run build",
         "lint": "turbo run lint --parallel",
-        "start:client": "turbo run start --filter=wondersmith-client"
+        "start:client": "turbo run start --filter=wondersmith-client",
+        "docker:server": "turbo prune --scope=wondersmith-server --docker"
     },
     "devDependencies": {
         "turbo": "1.2.14"

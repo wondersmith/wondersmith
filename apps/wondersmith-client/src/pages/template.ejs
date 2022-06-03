@@ -14,10 +14,6 @@ htmlWebpackPlugin.options.scripts = htmlWebpackPlugin.options.scripts || []
     </head>
     <body>
         <div id="root"></div>
-        <%
-            for (item of htmlWebpackPlugin.options.scripts) { %><%j
-                if (typeof item === 'string' || item instanceof String) { item = { src: item, type: 'text/javascript' } } %>
-                <script type="javascript" <% for (key in item) { %> <%= key %>="<%= item[key] %>"<% } %>></script><%
-    } %>
+        <%= htmlWebpackPlugin.tags.bodyTags %>
     </body>
 </html>

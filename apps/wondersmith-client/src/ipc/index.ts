@@ -1,9 +1,10 @@
-import { ipcMain } from "electron";
+import { BrowserWindow, ipcMain } from "electron";
 
 import { Logger } from "wondersmith-logger";
 
-Logger.get().info("Hello");
-
-ipcMain.on("goToPage", (page) => {
-    Logger.get().info(page);
-});
+export function initIPCMain(win: BrowserWindow): void {
+    ipcMain.on("goToPage", (_, page) => {
+        Logger.get().info("Navigating to", page);
+        win.loadFile(`./pages/${page}/index.html`);
+    });
+}

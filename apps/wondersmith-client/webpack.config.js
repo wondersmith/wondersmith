@@ -9,6 +9,7 @@ const webpack = require("webpack");
 const pagesArray = ["game", "login", "options", "splash"];
 
 module.exports = {
+    mode: "development",
     target: "electron-renderer",
     entry: pagesArray.reduce(
         (prev, cur) => ({ ...prev, [cur]: path.resolve(__dirname, "src", "pages", cur, "index.tsx") }),
@@ -36,6 +37,7 @@ module.exports = {
                 new HtmlWebpackPlugin({
                     chunks: [page],
                     filename: path.resolve(__dirname, "bin", "pages", page, "index.html"),
+                    inject: false,
                     minify: false,
                     scriptLoading: "blocking",
                     template: path.resolve(__dirname, "src", "pages", "template.ejs"),

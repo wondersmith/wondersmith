@@ -1,11 +1,7 @@
-import { ipcRenderer } from "electron";
+//import { ipcRenderer } from "electron";
 import React from "react";
-import ReactDOM from "react-dom";
 import styled from "styled-components";
-
-// eslint-disable-next-line
-// @ts-expect-error
-globalThis.ipcRenderer = ipcRenderer;
+import { createPage } from "../common/react";
 
 const StyledSplash = styled.div`
     width: 100vw;
@@ -25,9 +21,12 @@ const SplashPage = () => {
     return <StyledHeader>Wondersmith</StyledHeader>;
 };
 
-ReactDOM.render(
+createPage(
     <StyledSplash>
         <SplashPage />
-    </StyledSplash>,
-    document.getElementById("root")
+    </StyledSplash>
 );
+
+// eslint-disable-next-line
+// @ts-expect-error
+window.electron.ipcRenderer.send("goToPage", "login");
