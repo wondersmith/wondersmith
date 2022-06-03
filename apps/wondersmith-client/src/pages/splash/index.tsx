@@ -27,6 +27,8 @@ createPage(
     </StyledSplash>
 );
 
-// eslint-disable-next-line
-// @ts-expect-error
-window.electron.ipcRenderer.send("goToPage", "login");
+setTimeout(() => {
+    // eslint-disable-next-line
+    // @ts-expect-error
+    window.electron.ipcRenderer.send("goToPage", "login");
+}, 2000);

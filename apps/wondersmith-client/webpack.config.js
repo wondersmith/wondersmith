@@ -11,6 +11,7 @@ const pagesArray = ["game", "login", "options", "splash"];
 module.exports = {
     mode: "development",
     target: "electron-renderer",
+    devtool: false,
     entry: pagesArray.reduce(
         (prev, cur) => ({ ...prev, [cur]: path.resolve(__dirname, "src", "pages", cur, "index.tsx") }),
         {}
