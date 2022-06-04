@@ -10,9 +10,26 @@ const StyledCanvas = styled.canvas`
     height: 100%;
 `;
 
+const StyledUIFrame = styled.iframe`
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border: none;
+    background: transparent;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    user-select: none;
+`;
+
 const onCanvas = (element: HTMLCanvasElement) => {
     // TODO: Don't start yet, wait for scene load
     const engine = new WondersmithGameEngine({ canvas: element }).start();
 };
 
-createPage(<StyledCanvas id="game" ref={onCanvas} />);
+createPage(
+    <>
+        <StyledUIFrame id="ui" src="../ui/index.html" />
+        <StyledCanvas id="game" ref={onCanvas} />
+    </>
+);

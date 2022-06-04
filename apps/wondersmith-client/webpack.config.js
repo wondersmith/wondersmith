@@ -6,7 +6,7 @@ const webpack = require("webpack");
  * List of pages to be built - should be used in reducers or maps to generate the needed
  * configuration.
  */
-const pagesArray = ["game", "login", "options", "splash"];
+const pagesArray = ["game", "login", "options", "splash", "ui"];
 
 module.exports = {
     mode: "development",
