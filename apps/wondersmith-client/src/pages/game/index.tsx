@@ -11,7 +11,8 @@ const StyledCanvas = styled.canvas`
 `;
 
 const onCanvas = (element: HTMLCanvasElement) => {
-    const engine = new WondersmithGameEngine({ canvas: element });
+    // TODO: Don't start yet, wait for scene load
+    const engine = new WondersmithGameEngine({ canvas: element }).start();
 };
 
 createPage(<StyledCanvas id="game" ref={onCanvas} />);
