@@ -1,6 +1,8 @@
 //import { ipcRenderer } from "electron";
 import React from "react";
 import styled from "styled-components";
+
+import WSIpcClient from "../common/ipc";
 import { createPage } from "../common/react";
 
 const StyledSplash = styled.div`
@@ -28,7 +30,5 @@ createPage(
 );
 
 setTimeout(() => {
-    // eslint-disable-next-line
-    // @ts-expect-error
-    window.electron.ipcRenderer.send("goToPage", "login");
+    WSIpcClient.get().send("goToPage", "login");
 }, 2000);

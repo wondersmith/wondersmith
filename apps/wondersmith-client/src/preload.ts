@@ -1,5 +1,6 @@
 import { contextBridge, ipcRenderer } from "electron";
+import { createIpcClient } from "./ipc/ipc-client";
 
-contextBridge.exposeInMainWorld("electron", {
-    ipcRenderer: ipcRenderer,
+contextBridge.exposeInMainWorld("preload", {
+    ipcClient: createIpcClient(ipcRenderer),
 });

@@ -9,12 +9,27 @@ htmlWebpackPlugin.options.scripts = htmlWebpackPlugin.options.scripts || []
         <meta charset="UTF-8">
         <title><%= htmlWebpackPlugin.options.title %></title>
         <style>
+            :not(input):not(textarea),
+            :not(input):not(textarea)::after,
+            :not(input):not(textarea)::before {
+                -webkit-user-select: none;
+                user-select: none;
+                cursor: default;
+            }
+            input, button, textarea, :focus {
+                outline: none;
+            }
             body { background: black; margin: 0; padding: 0; overflow: hidden; }
             #root { width: 100vw; height: 100vh; overflow: hidden; }
         </style>
     </head>
     <body>
         <div id="root"></div>
+        <script lang="app/javascript">
+            window.wondersmith = {
+                global: { }
+             }
+        </script>
         <%= htmlWebpackPlugin.tags.bodyTags %>
     </body>
 </html>

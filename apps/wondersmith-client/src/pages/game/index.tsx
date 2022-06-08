@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import { WondersmithGameEngine } from "wondersmith-game-engine";
 
+import WSIpcClient from "../common/ipc";
 import { createPage } from "../common/react";
 
 const StyledCanvas = styled.canvas`
@@ -33,3 +34,5 @@ createPage(
         <StyledCanvas id="game" ref={onCanvas} />
     </>
 );
+
+WSIpcClient.get().on("resize", console.log.bind(console));
