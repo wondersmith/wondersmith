@@ -1,0 +1,14 @@
+{
+    "type": "character",
+    "data": {
+        "file": "index.glb",
+        "name": "dummy-male",
+        "animations": [
+            "fixed.idle",
+            "fixed.jump",
+            "move.walk",
+            "move.run"
+        ],
+        "textures": {}
+    }
+}
