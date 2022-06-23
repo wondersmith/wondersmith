@@ -15,7 +15,7 @@ import { initIPCMain } from "./ipc";
             nodeIntegration: false,
             contextIsolation: true,
         },
-        frame: false,
+        //frame: false,
     });
     initIPCMain(win);
     // Default to 16:9 - otherwise get resolution

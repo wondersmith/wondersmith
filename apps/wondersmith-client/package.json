@@ -36,9 +36,11 @@
     "wondersmith-ui": "0.0.1"
   },
   "dependencies": {
+    "browserfs": "1.4.3",
     "commander": "9.2.0",
     "cosmiconfig": "7.0.1",
     "electron": "19.0.0",
+    "scoped-fs": "1.4.1",
     "wondersmith-game-engine": "0.0.1",
     "wondersmith-logger": "0.0.1"
   }

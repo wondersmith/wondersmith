@@ -1,16 +1,43 @@
-import { Camera, Engine, EngineOptions, FlyCamera, HemisphericLight, MeshBuilder, Scene, Vector3 } from "@babylonjs/core";
+import {
+    Camera,
+    Engine,
+    EngineOptions,
+    FlyCamera,
+    HemisphericLight,
+    MeshBuilder,
+    Scene,
+    Vector3,
+} from "@babylonjs/core";
+
+declare const globalThis: Global & { WondersmithGameEngine?: WondersmithGameEngine };
 
 export interface WondersmithGameEngineOptions {
     canvas: HTMLCanvasElement;
     video?: {
         antialias?: boolean;
-    }
+    };
 }
 
 export class WondersmithGameEngine {
     private readonly babylon: Engine;
     private readonly scene: Scene;
     private readonly camera: Camera;
+
+    public static init(opts: WondersmithGameEngineOptions) {
+        if (globalThis.WondersmithGameEngine) {
+            throw Error("WondersmithGameEngine already globally instantiated");
+        } else {
+            globalThis.WondersmithGameEngine = new WondersmithGameEngine(opts);
+        }
+    }
+
+    public static get() {
+        if (globalThis.WondersmithGameEngine) {
+            return globalThis.WondersmithGameEngine;
+        } else {
+            throw Error("WondersmithGameEngine not globally instantiated");
+        }
+    }
 
     // TODO: Map of agents
 
