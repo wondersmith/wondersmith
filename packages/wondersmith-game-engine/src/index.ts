@@ -61,6 +61,11 @@ export class WondersmithGameEngine {
         return this;
     }
 
+    public resize(): this {
+        this.babylon.resize(true);
+        return this;
+    }
+
     private render(): void {
         this.scene.render();
     }

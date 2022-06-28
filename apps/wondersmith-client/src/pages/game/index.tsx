@@ -26,6 +26,7 @@ const StyledUIFrame = styled.iframe`
 const onCanvas = (element: HTMLCanvasElement) => {
     // TODO: Don't start yet, wait for scene load
     const engine = new WondersmithGameEngine({ canvas: element }).start();
+    new ResizeObserver(() => engine.resize()).observe(element);
 };
 
 createPage(
