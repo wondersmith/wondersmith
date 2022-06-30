@@ -6,28 +6,34 @@ import {
     HemisphericLight,
     MeshBuilder,
     Scene,
+    SceneLoader,
     Vector3,
 } from "@babylonjs/core";
+
+import { WondersmithAssetManager } from "wondersmith-assets";
 
 declare const globalThis: Global & { WondersmithGameEngine?: WondersmithGameEngine };
 
 export interface WondersmithGameEngineOptions {
     canvas: HTMLCanvasElement;
+    assets: WondersmithAssetManager;
     video?: {
         antialias?: boolean;
     };
 }
 
 export class WondersmithGameEngine {
+
     private readonly babylon: Engine;
     private readonly scene: Scene;
     private readonly camera: Camera;
+    private readonly assets: WondersmithAssetManager;
 
     public static init(opts: WondersmithGameEngineOptions) {
         if (globalThis.WondersmithGameEngine) {
             throw Error("WondersmithGameEngine already globally instantiated");
         } else {
-            globalThis.WondersmithGameEngine = new WondersmithGameEngine(opts);
+            return globalThis.WondersmithGameEngine = new WondersmithGameEngine(opts);
         }
     }
 
@@ -47,6 +53,7 @@ export class WondersmithGameEngine {
         this.scene = new Scene(this.babylon);
         this.camera = new FlyCamera("engine.camera", new Vector3(0, 0, -10), this.scene);
         this.camera.attachControl(opts.canvas, true);
+        this.assets = opts.assets;
         new HemisphericLight("light1", new Vector3(1, 1, 0), this.scene);
         MeshBuilder.CreateSphere("sphere", { diameter: 1 }, this.scene);
     }

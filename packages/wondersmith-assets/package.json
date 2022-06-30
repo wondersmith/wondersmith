@@ -14,10 +14,12 @@
   },
   "dependencies": {
     "@babylonjs/core": "5.9.0",
+    "fs-extra": "10.1.0",
     "fs-root": "0.0.1",
     "wondersmith-logger": "0.0.1"
   },
   "devDependencies": {
+    "@types/fs-extra": "9.0.13",
     "del-cli": "4.0.1",
     "eslint-config-wondersmith": "0.0.1",
     "typescript": "4.7.2",

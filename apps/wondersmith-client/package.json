@@ -36,6 +36,7 @@
     "wondersmith-ui": "0.0.1"
   },
   "dependencies": {
+    "@babylonjs/core": "5.9.0",
     "browserfs": "1.4.3",
     "commander": "9.2.0",
     "cosmiconfig": "7.0.1",

@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import { SceneLoader } from "@babylonjs/core";
 
 import { WondersmithGameEngine } from "wondersmith-game-engine";
 
-import WSIpcClient from "../common/ipc";
 import { createPage } from "../common/react";
 
 const StyledCanvas = styled.canvas`
@@ -23,10 +23,12 @@ const StyledUIFrame = styled.iframe`
     user-select: none;
 `;
 
-const onCanvas = (element: HTMLCanvasElement) => {
+const onCanvas = (canvas: HTMLCanvasElement) => {
     // TODO: Don't start yet, wait for scene load
-    const engine = new WondersmithGameEngine({ canvas: element }).start();
-    new ResizeObserver(() => engine.resize()).observe(element);
+    const assets = (window as any).preload.lib.createAssetManager(SceneLoader);
+    console.log(assets);
+    WondersmithGameEngine.init({ canvas, assets }).start();
+    new ResizeObserver(() => WondersmithGameEngine.get().resize()).observe(canvas);
 };
 
 createPage(
@@ -35,5 +37,3 @@ createPage(
         <StyledCanvas id="game" ref={onCanvas} />
     </>
 );
-
-WSIpcClient.get().on("resize", console.log.bind(console));
